@@ -1,23 +1,31 @@
-# Livret numérique NALDEO — V3
+# Livret drone NALDEO — V4
 
-Livret statique : affichage double page sur ordinateur, simple page sur téléphone, navigation par sommaire, glissement sur mobile, clavier ← →, agrandissement et accès aux 7 PDF originaux.
+Site statique de consultation, avec **7 PDF**, pages prévisualisées, navigation feuilletable, accès aux originaux, et bouton **Télécharger tous les justificatifs** (archive ZIP incluse).
 
 ## Publier sur GitHub Pages
 
-1. Valider avec NALDEO la diffusion publique des documents professionnels et des données personnelles qu’ils contiennent.
-2. Créer un dépôt public GitHub (`livret-drone`).
-3. Transférer **le contenu de ce ZIP** à la racine du dépôt (`index.html`, `app.js`, `style.css`, `data.js`, `docs/`, `pages/`). Il ne faut pas envoyer le dossier conteneur comme sous-dossier.
-4. Dans Settings > Pages, choisir « Deploy from a branch », branche `main`, dossier `/(root)`.
-5. Ouvrir `https://VOTRE-COMPTE.github.io/livret-drone/` en navigation privée sur téléphone avant de générer le QR code.
+1. Créez ou ouvrez un dépôt public GitHub (publication des documents à valider au préalable par NALDEO).
+2. Mettez les fichiers du dossier `livret-drone-v4` **directement à la racine** du dépôt : `index.html`, `app.js`, `data.js`, `style.css`, `pages/`, `docs/`, `justificatifs-drone-naldeo.zip`.
+3. Dans **Settings > Pages**, activez **Deploy from a branch**, branche `main`, dossier `/(root)`.
+4. Attendez la publication puis ouvrez `https://VOTRE-COMPTE.github.io/NOM-DEPOT/` en navigation privée.
+5. Générez un QR code vers **cette adresse** et placez-le sur la fiche QGIS. Aucun QR code réel n'est généré avant de connaître l'URL du site.
 
-## Mettre à jour les documents
+## Remplacer la V3 par la V4 — sans anciens fichiers
 
-Remplacer les PDF correspondants dans `docs/`, puis remplacer leurs aperçus dans `pages/` (WebP) : ces derniers sont les pages visibles du livret. Modifier `data.js` pour changer titres / ordre / fichiers. Il est possible de générer les WebP depuis des PDF avec PyMuPDF à 1,55 fois la taille PDF. Les PDF originaux restent disponibles séparément.
+### Méthode recommandée si vous utilisez GitHub Desktop
 
-## Vigilance
+Clonez le dépôt localement avec GitHub Desktop, supprimez **les anciens fichiers du site** (sans supprimer `.git`), copiez à leur place tout le **contenu** de ce dossier V4, puis **Commit to main > Push origin**. GitHub gérera automatiquement les ajouts, remplacements **et suppressions**.
 
-Le relevé de situation exploitant daté du 20/04/2026 indique qu'aucune déclaration STS valide n'était enregistrée en France à cette date. Vérifier et actualiser cette information auprès de NALDEO/AlphaTango avant diffusion ou opérations concernées. L'assurance 2026 mentionne une fin au 01/01/2027, sous réserve des conditions contractuelles.
+### Depuis le site GitHub
 
-Site public : ne pas publier de pièce d'identité, document interne, ou données professionnelles sans autorisation. Le QR code ne crée aucune restriction d'accès.
+`Add file > Upload files` remplace les fichiers ayant **exactement le même chemin et le même nom** ; il ne supprime **pas** les fichiers obsolètes. Pour supprimer ces derniers, ouvrez chaque fichier à supprimer et choisissez **Delete file**, puis confirmez le commit. Pour remplacer tout un site, GitHub Desktop est beaucoup plus pratique.
 
-Le site utilise Google Fonts lorsque disponible ; il reste exploitable sans chargement de police externe.
+**Important** : Si vous copiez le dossier `livret-drone-v4` lui-même, plutôt que son contenu, votre page risque de ne pas se trouver à la racine attendue.
+
+## Mettre à jour les justificatifs
+
+Les originaux sont dans `docs/` et leurs images de prévisualisation dans `pages/`. Les titres et chemins sont définis dans `data.js`. Quand un PDF change, remplacez aussi les images de ses pages et reconstruisez `justificatifs-drone-naldeo.zip` si vous souhaitez conserver le téléchargement groupé à jour.
+
+## Publication publique
+
+Les PDF publiés sur GitHub Pages sont accessibles publiquement. Obtenez l'autorisation de NALDEO et vérifiez leur pertinence avant mise en ligne. Le livret est documentaire ; il ne remplace pas les autorisations ou démarches propres à chaque mission.
